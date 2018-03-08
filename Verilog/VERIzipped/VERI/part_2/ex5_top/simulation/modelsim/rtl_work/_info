@@ -1,0 +1,25 @@
+m255
+K3
+13
+cModel Technology
+Z0 dH:\VERI\part_2\ex5_top\simulation\modelsim
+vcounter_8
+!i10b 1
+!s100 ae2hMN8<`VVH;`L<i?7eX3
+IYKVZ1ckRgWeigKZT>Y@<h0
+Vdn7aTnOzPKdeZA;zmQ`Cl3
+Z1 dH:\VERI\part_2\ex5_top\simulation\modelsim
+w1511169786
+8H:/VERI/part_2/ex5_top/counter_8.v
+FH:/VERI/part_2/ex5_top/counter_8.v
+L0 6
+OV;L;10.1d;51
+r1
+!s85 0
+31
+!s108 1511354603.960000
+!s107 H:/VERI/part_2/ex5_top/counter_8.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+H:/VERI/part_2/ex5_top|H:/VERI/part_2/ex5_top/counter_8.v|
+!s101 -O0
+o-vlog01compat -work work -O0
+!s92 -vlog01compat -work work +incdir+H:/VERI/part_2/ex5_top -O0

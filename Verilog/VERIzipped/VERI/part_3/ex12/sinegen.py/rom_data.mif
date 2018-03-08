@@ -1,0 +1,10 @@
+-- ROM Initialization file
+
+DEPTH = 1024;
+WIDTH = 10;
+ADDRESS_RADIX = HEX;
+DATA_RADIX = HEX;
+
+CONTENT
+BEGIN
+

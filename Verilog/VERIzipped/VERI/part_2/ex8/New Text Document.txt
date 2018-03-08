@@ -1,0 +1,61 @@
+module fsm ( clk, tick, trigger, time_out, en_lfsr, start_delay,ledr);
+
+input clk;
+input  tick;
+input trigger;
+input time_out;
+
+output en_lfsr;
+output start_delay;
+output [9:0] ledr;
+
+
+reg [9:0] sreg;
+
+
+//state definition 
+parameter idle = 3'b001;
+parameter start_led = 3'b010;
+parameter state_start_delay = 3'b100;
+parameter Nstate = 3;
+reg [Nstate -1 :0] state ;
+
+
+reg start_delay, en_lfsr;
+
+initial state = idle;
+
+initial  sreg = 10'b0 ;
+
+
+
+
+always @ (posedge clk)
+    case(state)
+	 
+	 idle: if (trigger == 0) 
+	 
+	 state <= start_led;
+	 else begin start_delay <= 1'b0;
+	 end
+	 /////////////////////////////////////////////////
+	 start_led:
+	if (tick ==1 )begin 
+	   if (sreg == 10'b1111111111) state <= state_start_delay;
+	   else sreg <= {1'b1,sreg[9:1]};
+	 end
+	 /////////////////////////////////////////////////
+	 state_start_delay: if(time_out == 1) 
+	 begin
+	 //trigger = 1'b1;
+	 state <= idle;
+	 end
+	 
+	 endcase
+
+assign ledr = sreg ;	 
+
+
+
+endmodule
+ 

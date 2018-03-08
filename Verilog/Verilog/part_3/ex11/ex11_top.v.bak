@@ -1,0 +1,19 @@
+module ex11_top (CLOCK_50, DAC_CS, DAC_SDI, DAC_LD, DAC_SCK);
+
+
+input CLOCK_50 ;
+
+output DAC_CS ;
+output DAC_SDI ;
+output DAC_LD ;
+output DAC_SCK ;
+wire load;
+
+div_5000 (CLOCK_50, load);
+
+
+spi2dac_v3(CLOCK_50 , 10'h23b, load, DAC_SDI, DAC_CS, DAC_SCK, DAC_LD);
+
+
+
+endmodule

@@ -1,0 +1,49 @@
+
+
+H:/VERI/part_3/ROM.v
+
+Dec 08 01PM:44:27>: The following design file, which has identical name but a different extension 
+from the specified variation file, already exists in the working directory:
+
+ROM.vhd
+
+This may create a conflict of design files and/or lead to undesirable side
+effects.
+
+Is it OK to continue file generation?
+
+H:/VERI/part_3/ROM.v
+
+Dec 08 01PM:46:05>: The following design file, which has identical name but a different extension 
+from the specified variation file, already exists in the working directory:
+
+ROM.vhd
+
+This may create a conflict of design files and/or lead to undesirable side
+effects.
+
+Is it OK to continue file generation?
+
+H:/VERI/part_3/ex14/ROM.v
+
+Dec 08 02PM:21:38>: The following design file, which has identical name but a different extension 
+from the specified variation file, already exists in the working directory:
+
+ROM.vhd
+
+This may create a conflict of design files and/or lead to undesirable side
+effects.
+
+Is it OK to continue file generation?
+
+H:/VERI/part_3/ex14/ROM.v
+
+Dec 08 02PM:23:29>: The following design file, which has identical name but a different extension 
+from the specified variation file, already exists in the working directory:
+
+ROM.vhd
+
+This may create a conflict of design files and/or lead to undesirable side
+effects.
+
+Is it OK to continue file generation?

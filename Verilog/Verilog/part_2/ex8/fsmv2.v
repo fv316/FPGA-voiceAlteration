@@ -1,0 +1,52 @@
+module fsmv2 (clk,
+tick,
+trigger,
+time_out,
+en_fsr,
+start_delay,
+LEDR)
+
+input trigger,clk,tick,time_out;
+reg [3:0] count;
+output reg en_fsr,start_delay;
+output reg  [9:0] LEDR;
+initial en_fsr=1'b1;
+initial start_delay=1'b0;
+
+//state definition 
+parameter idle = 4'b0001;
+parameter start_led = 4'b0010;
+parameter state_start_delay = 4'b0100;
+parameter done = 4'b1000;
+parameter Nstate = 4;
+reg [Nstate -1 :0] state ;
+initial state = idle;
+initial sreg = 10'b0 ;
+
+always @ (posedge tick)
+	case(state)
+	idle: if (trigger == 1'b1) state <= start_led;
+	start_led: if (ledr == 10'b1111111111) state <= state_start_delay;
+	else begin
+	if (tick == 1'b1)
+	sreg <= {1'b1 ,sreg[8:0]};
+	end
+	state_start_delay: if (time_out == 1'b1) state <= done;
+	done: state <= idle;
+	default ;
+endcase
+
+always @ (*)
+case(state)
+idle: start_delay <= 1'b0;
+start_led: start_delay <= 1'b0;
+en_lfsr <= 1'b1;
+state_start_delay: start_delay <= 1'b1;
+en_lfse <= 1'b0;
+done: start_delay <= 1'b0;
+ledr <= 10'b0;
+endcase
+
+assign LEDR <= (sreg&&(~time_out));  
+endmodule
+

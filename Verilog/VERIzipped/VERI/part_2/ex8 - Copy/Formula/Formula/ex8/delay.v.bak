@@ -1,0 +1,20 @@
+module delay (
+N,
+clk,
+trigger,
+time_out;
+);
+
+input [15:0] N;
+input clk, trigger;
+output time_out;
+initial time_out=0;
+
+always @ (posedge clk)
+if (N==0) begin
+time_out<=1;
+end
+else begin
+time_out<=0;
+N<=N-1'b1;
+end

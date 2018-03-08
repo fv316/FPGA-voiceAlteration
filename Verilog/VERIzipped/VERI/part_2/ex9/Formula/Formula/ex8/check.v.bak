@@ -1,0 +1,15 @@
+module check1 (count, time_out, result);
+	input [3:0] count;
+	input time_out;
+	output reg [3:0] result;
+	always @ (*)
+	begin
+	if (count == 4'b0)
+	begin
+	if (time_out == 1'b1)
+	begin
+	result <= 4'b1111
+	end
+	end
+	endmodule
+	

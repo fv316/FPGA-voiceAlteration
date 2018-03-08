@@ -1,0 +1,28 @@
+module delay (N, clk, trigger, time_out);
+
+input [13:0] N;
+input clk, trigger;
+output reg time_out;
+reg state;
+initial state = 2'b0;
+reg [13:0] count;
+initial count == 0;
+
+always @ (posedge clk)
+	case (state)
+		1'b0: if (trigger == 1)
+		begin
+		state <= 1;
+		count <= 0;
+		time_out <= 0;
+		end
+		1'b1: if (count == N)
+		begin 
+		state <= 1'b0;
+		time_out <= 1;
+		end
+		else begin
+		count <= count + 1'b1;
+		time_out <= 0;
+		end
+		

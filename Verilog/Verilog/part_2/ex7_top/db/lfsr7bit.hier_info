@@ -1,0 +1,68 @@
+|ex7_top
+CLOCK_50 => CLOCK_50.IN1
+KEY[0] => ~NO_FANOUT~
+KEY[1] => ~NO_FANOUT~
+KEY[2] => ~NO_FANOUT~
+KEY[3] => KEY[3].IN1
+HEX0[0] << hex_to_7seg:BIT1.port1
+HEX0[1] << hex_to_7seg:BIT1.port1
+HEX0[2] << hex_to_7seg:BIT1.port1
+HEX0[3] << hex_to_7seg:BIT1.port1
+HEX0[4] << hex_to_7seg:BIT1.port1
+HEX0[5] << hex_to_7seg:BIT1.port1
+HEX0[6] << hex_to_7seg:BIT1.port1
+HEX1[0] << hex_to_7seg:BIT2.port1
+HEX1[1] << hex_to_7seg:BIT2.port1
+HEX1[2] << hex_to_7seg:BIT2.port1
+HEX1[3] << hex_to_7seg:BIT2.port1
+HEX1[4] << hex_to_7seg:BIT2.port1
+HEX1[5] << hex_to_7seg:BIT2.port1
+HEX1[6] << hex_to_7seg:BIT2.port1
+
+
+|ex7_top|lfsr7:lsfr_one
+enable => sreg[1].CLK
+enable => sreg[2].CLK
+enable => sreg[3].CLK
+enable => sreg[4].CLK
+enable => sreg[5].CLK
+enable => sreg[6].CLK
+enable => sreg[7].CLK
+data_out[1] <= sreg[1].DB_MAX_OUTPUT_PORT_TYPE
+data_out[2] <= sreg[2].DB_MAX_OUTPUT_PORT_TYPE
+data_out[3] <= sreg[3].DB_MAX_OUTPUT_PORT_TYPE
+data_out[4] <= sreg[4].DB_MAX_OUTPUT_PORT_TYPE
+data_out[5] <= sreg[5].DB_MAX_OUTPUT_PORT_TYPE
+data_out[6] <= sreg[6].DB_MAX_OUTPUT_PORT_TYPE
+data_out[7] <= sreg[7].DB_MAX_OUTPUT_PORT_TYPE
+clock => ~NO_FANOUT~
+
+
+|ex7_top|hex_to_7seg:BIT1
+in[0] => Decoder0.IN3
+in[1] => Decoder0.IN2
+in[2] => Decoder0.IN1
+in[3] => Decoder0.IN0
+out[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+out[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+out[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+out[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+out[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+out[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+out[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ex7_top|hex_to_7seg:BIT2
+in[0] => Decoder0.IN3
+in[1] => Decoder0.IN2
+in[2] => Decoder0.IN1
+in[3] => Decoder0.IN0
+out[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+out[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+out[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+out[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+out[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+out[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+out[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+

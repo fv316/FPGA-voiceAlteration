@@ -1,0 +1,33 @@
+`timescale 1ns / 100ps //unit time is 1ns, resolution 100ps
+
+//Design name: count_8
+//function : an 8-bit synchronous counter with enable input
+
+module counter_8 (
+  clock,
+  enable,
+  count
+ );
+ 
+ //declare ports
+ 
+   parameter BIT_SZ = 8;
+	input clock;
+	input enable;
+	output [BIT_SZ-1:0] count;
+	
+ //count needs to declared as reg
+ 
+   reg [BIT_SZ-1:0] count;
+	
+ //alaways initialise storage elements such as D-FF
+ 
+  initial count = 0;
+  
+ //main body of the module
+ 
+  always @ (posedge clock)
+  if (enable == 1'b1)
+      count <= count + 1'b1 ;
+		
+endmodule //end of module

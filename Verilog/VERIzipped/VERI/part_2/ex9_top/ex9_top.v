@@ -1,0 +1,45 @@
+module ex9_top (
+CLOCK_50,
+KEY,
+HEX0,
+HEX1,
+HEX2,
+HEX3,
+HEX4,
+LEDR
+);
+
+
+input CLOCK_50;
+input [3:0] KEY;
+output [6:0] HEX0, HEX1, HEX2, HEX3, HEX4;
+output [9:0] LEDR;
+
+reg [15:0] k1 = 16'd49999;
+reg [15:0] k2 = 16'd2499;
+
+wire tick_ms,tick_hs,time_out,en_fsr,start_delay;
+wire [13:0] prbs;
+wire [3:0]	BCD_0, BCD_1, BCD_2, BCD_3, BCD_4;
+wire [13:0] react;
+
+clktick a1 (CLOCK_50,k1,tick_ms,1'b1);
+clktick a2 (CLOCK_50,k2,tick_hs,tick_ms);
+
+fsm F1  (tick_ms,tick_hs,~KEY[3],time_out,en_fsr,start_delay,LEDR);
+
+lfsr14 LFSR (en_fsr,prbs, tick_ms);
+
+delayv2 D1 (prbs,tick_ms,start_delay,time_out);
+
+bin2bcd_16 BCDC (react, BCD_0, BCD_1, BCD_2, BCD_3, BCD_4);
+
+reactions (tick_ms, time_out, react, ~KEY[0]);
+
+hex_to_7seg H0 (HEX0, BCD_0);
+hex_to_7seg H1 (HEX1, BCD_1);
+hex_to_7seg H2 (HEX2, BCD_2);
+hex_to_7seg H3 (HEX3, BCD_3);
+hex_to_7seg H4 (HEX4, BCD_4);
+
+endmodule

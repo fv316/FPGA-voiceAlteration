@@ -1,0 +1,39 @@
+module fsm (
+clk,
+tick,
+trigger,
+time_out,
+en_fsr,
+start_delay
+);
+
+
+input trigger,clk,tick,time_out;
+output en_fsr,start_delay;
+inital [3:0] count=0;
+
+reg temp;
+
+if (trigger==1){
+temp<=1;}
+
+always @ (posedge clk)
+
+	case (count)
+		2'd0 : count<=1;
+		2'd1: count<=2;
+		2'd2: count<=3;
+		2'd3: count<=4;
+		2'd4: count<=5;
+		2'd5: count<=6;
+		2'd6: count<=7;
+		2'd7: count<=8;
+		2'd8: count<=9;
+		2'd9: count<=10;
+		default:
+			count<=0;
+		endcase
+
+		endmodule
+	
+

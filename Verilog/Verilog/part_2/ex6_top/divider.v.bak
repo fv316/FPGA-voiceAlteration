@@ -1,0 +1,14 @@
+module newenable (clock, in, out);
+	input clock;
+	input in;
+	output out;
+	reg count;
+	initial count = 0;
+	
+	always @ (posedge clock);
+		if (count = 16'd50000)
+			out = 1'b1;
+			count <= 0;
+		else out = 0'b0;
+			count <= count + 1;
+endmodule

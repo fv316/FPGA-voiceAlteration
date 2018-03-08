@@ -1,0 +1,48 @@
+# Reading C:/altera/13.0sp1/modelsim_ase/tcl/vsim/pref.tcl 
+# do ex10_run_msim_rtl_verilog.do 
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Copying C:\altera\13.0sp1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# ** Warning: Copied C:\altera\13.0sp1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini.
+#          Updated modelsim.ini.
+# 
+# vlog -vlog01compat -work work +incdir+H:/VERI/part_3/spi2dac&adc_v3 {H:/VERI/part_3/spi2dac&adc_v3/spi2dac_v3.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module spi2dac_v3
+# 
+# Top level modules:
+# 	spi2dac_v3
+# 
+do ./tb_spi2dac1.do
+# ** Error: (vish-4008) Object 'sysclk' not found.
+# Error in macro ././tb_spi2dac1.do line 8
+# ** Error: (vish-4008) Object 'sysclk' not found.
+# 
+#     while executing
+# "force sysclk 1 0, 0 10ns -r 20ns"
+do ./tb_spi2dac1.do
+# ** Error: (vish-4008) Object 'sysclk' not found.
+# Error in macro ././tb_spi2dac1.do line 8
+# ** Error: (vish-4008) Object 'sysclk' not found.
+# 
+#     while executing
+# "force sysclk 1 0, 0 10ns -r 20ns"
+cd H:/VERI/part_3/ex10/simulation/modelsim
+# reading modelsim.ini
+vsim work.spi2dac_v3
+# vsim work.spi2dac_v3 
+# Loading work.spi2dac_v3
+vsim work.spi2dac_v3
+# vsim work.spi2dac_v3 
+# Loading work.spi2dac_v3
+vsim work.spi2dac_v3
+# vsim work.spi2dac_v3 
+# Loading work.spi2dac_v3
+vsim work.spi2dac_v3
+# vsim work.spi2dac_v3 
+# Loading work.spi2dac_v3
+do ./tb_spi2dac1.do
